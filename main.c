@@ -38,6 +38,8 @@ void signal_handler(int sig) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
+// Hanle the maintenance page
+////////////////////////////////////////////////////////////////////////////////////////////////
 void handle_maintenance(http_request_t *request, http_response_t *response) {
     template_context_t *ctx = template_context_create();
     template_context_set(ctx, "maintenance_title", "LibreGrad: Maintenance");
@@ -61,7 +63,7 @@ void handle_maintenance(http_request_t *request, http_response_t *response) {
 void handle_home(http_request_t *request, http_response_t *response) {
     template_context_t *ctx = template_context_create();
     template_context_set(ctx, "title", "LibreGrad Engines");    
-    char *rendered = template_render_file("templates/landing2.html", ctx);
+    char *rendered = template_render_file("templates/   .html", ctx);
     if (rendered) {
         http_response_set_body(response, rendered);
         http_response_set_header(response, "Content-Type", "text/html");
