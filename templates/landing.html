@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreGrad Engines</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: #ffffff !important;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            color: #1a1a1a !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .navbar-brand i {
+            color: #666;
+        }
+
+        .nav-link {
+            color: #666 !important;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #1a1a1a !important;
+        }
+
+        .nav-link i {
+            opacity: 0.7;
+        }
+
+        main {
+            flex: 1;
+            padding: 3rem 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-section .lead {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2rem;
+            background: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .product-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .product-card h2 i {
+            color: #666;
+            font-size: 1.3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-item h3 i {
+            color: #666;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .specs-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .specs-list li {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-list li span:first-child {
+            color: #666;
+        }
+
+        .specs-list li span:last-child {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .specs-list li i {
+            color: #999;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            border: 1px solid #1a1a1a;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #000000;
+            border-color: #000000;
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            color: #666;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #f8f8f8;
+            border-color: #d4d4d4;
+            color: #1a1a1a;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            background: #fafafa;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background: #fafafa;
+            border-top: 1px solid #e5e5e5;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        footer i {
+            color: #999;
+        }
+
+        .section-divider {
+            margin: 3rem 0;
+            border: none;
+            height: 1px;
+            background: #e5e5e5;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .nav-link {
+                margin-left: 0;
+                padding: 0.5rem 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-cube"></i>
+                LibreGrad Engines
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/status">
+                            <i class="fas fa-info-circle me-1"></i>Status
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/server">
+                            <i class="fas fa-server me-1"></i>Server
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Precision Engine Development</h1>
+            <p class="subtitle">Engineered for Performance</p>
+            <p class="lead">
+                LibreGrad Engines specializes in high-performance 50cc 4-stroke engine development. 
+                Our engines combine efficiency, reliability, and cutting-edge engineering for exceptional performance.
+            </p>
+            <div class="mt-4">
+                <button class="btn btn-primary me-2">
+                    <i class="fas fa-file-alt me-2"></i>View Specifications
+                </button>
+                <a href="#contact" class="btn-outline">
+                    <i class="fas fa-envelope me-2"></i>Contact Sales
+                </a>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="product-card">
+                    <h2><i class="fas fa-cog me-2"></i>50cc 4-Stroke Engine</h2>
+                    <p style="color: #666; margin-bottom: 2rem;">
+                        Our flagship product delivers optimal power output with superior fuel efficiency. 
+                        Designed for durability and ease of maintenance.
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #1a1a1a;">
+                        <i class="fas fa-list-ul me-2" style="color: #666;"></i>Technical Specifications
+                    </h3>
+                    <ul class="specs-list">
+                        <li>
+                            <span><i class="fas fa-circle-notch"></i>Displacement</span>
+                            <span>50cc</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-arrows-alt-v"></i>Stroke Type</span>
+                            <span>4-Stroke</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-tachometer-alt"></i>Max Power</span>
+                            <span>3.5 HP @ 7,500 RPM</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-bolt"></i>Max Torque</span>
+                            <span>3.2 Nm @ 5,500 RPM</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-snowflake"></i>Cooling System</span>
+                            <span>Air-Cooled</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-fire"></i>Ignition</span>
+                            <span>CDI Electronic</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-gas-pump"></i>Fuel System</span>
+                            <span>Carburetor</span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-weight"></i>Dry Weight</span>
+                            <span>8.5 kg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3><i class="fas fa-leaf"></i>Fuel Efficient</h3>
+                        <p>Advanced combustion design ensures optimal fuel consumption and reduced emissions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><i class="fas fa-shield-alt"></i>Reliable</h3>
+                        <p>Built with premium materials for long-lasting performance and minimal maintenance.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><i class="fas fa-tools"></i>Easy Maintenance</h3>
+                        <p>Designed for simple servicing with accessible components and clear documentation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><i class="fas fa-volume-mute"></i>Low Noise</h3>
+                        <p>Engineered for quiet operation without compromising on power delivery.</p>
+                    </div>
+                </div>
+
+                <div class="cta-section" id="contact">
+                    <h3>Ready to Get Started?</h3>
+                    <p>Contact our team to learn more about our 50cc 4-stroke engine and discuss your specific requirements.</p>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-phone me-2"></i>Get in Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>
+                <i class="fas fa-cube me-2"></i>
+                LibreGrad Engines - Precision Engineering Since 2025
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,705 @@
+[2025-10-16 17:07:26] INFO: Logger initialized
+[2025-10-16 17:07:26] INFO: Starting Advanced C Web Server...
+[2025-10-16 17:07:26] INFO: Users file not found, starting with empty user database
+[2025-10-16 17:07:26] INFO: Authentication system initialized with 0 users
+[2025-10-16 17:07:26] INFO: Added route: GET /a
+[2025-10-16 17:07:26] INFO: Added route: GET /api/status
+[2025-10-16 17:07:26] INFO: Added route: POST /submit
+[2025-10-16 17:07:26] INFO: Added route: GET /server
+[2025-10-16 17:07:26] INFO: Added route: POST /api/register
+[2025-10-16 17:07:26] INFO: Added route: POST /api/login
+[2025-10-16 17:07:26] INFO: Added route: POST /api/logout
+[2025-10-16 17:07:26] INFO: Added route: GET /api/profile
+[2025-10-16 17:07:26] INFO: Added route: GET /api/users
+[2025-10-16 17:07:26] INFO: Added route: GET /
+[2025-10-16 17:07:26] INFO: Added static route: /static -> static
+[2025-10-16 17:07:26] INFO: Server configured with routes:
+[2025-10-16 17:07:26] INFO:   GET  / - Home page
+[2025-10-16 17:07:26] INFO:   GET  /api/status - Server status API
+[2025-10-16 17:07:26] INFO:   POST /submit - Handle form submissions
+[2025-10-16 17:07:26] INFO:   POST /api/register - User registration
+[2025-10-16 17:07:26] INFO:   POST /api/login - User authentication
+[2025-10-16 17:07:26] INFO:   POST /api/logout - User logout
+[2025-10-16 17:07:26] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 17:07:26] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 17:07:26] INFO:   Static files served from /static
+[2025-10-16 17:07:26] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 17:07:45] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 17:07:47] INFO: Request: GET /servers (Body length: 0, Content: )
+[2025-10-16 17:07:47] WARNING: 404 Not Found: GET /servers
+[2025-10-16 17:07:48] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:07:48] INFO: Served static file: static/style.css
+[2025-10-16 17:07:48] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:07:48] INFO: Served static file: static/script.js
+[2025-10-16 17:07:48] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:07:49] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 17:07:55] ERROR: Failed to receive data from client
+[2025-10-16 17:07:59] INFO: Request: GET /status (Body length: 0, Content: )
+[2025-10-16 17:07:59] WARNING: 404 Not Found: GET /status
+[2025-10-16 17:07:59] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:07:59] INFO: Served static file: static/script.js
+[2025-10-16 17:07:59] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:07:59] INFO: Served static file: static/style.css
+[2025-10-16 17:07:59] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:07:59] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:07:59] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:08:01] INFO: Request: GET /servers (Body length: 0, Content: )
+[2025-10-16 17:08:01] WARNING: 404 Not Found: GET /servers
+[2025-10-16 17:08:02] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:08:02] INFO: Served static file: static/script.js
+[2025-10-16 17:08:02] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:08:02] INFO: Served static file: static/style.css
+[2025-10-16 17:08:02] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:08:04] INFO: Request: GET /features (Body length: 0, Content: )
+[2025-10-16 17:08:04] WARNING: 404 Not Found: GET /features
+[2025-10-16 17:08:04] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:08:04] INFO: Served static file: static/script.js
+[2025-10-16 17:08:04] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:08:04] INFO: Served static file: static/style.css
+[2025-10-16 17:08:04] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:08:06] INFO: Request: GET /support (Body length: 0, Content: )
+[2025-10-16 17:08:06] WARNING: 404 Not Found: GET /support
+[2025-10-16 17:08:06] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:08:06] INFO: Served static file: static/style.css
+[2025-10-16 17:08:06] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:08:06] INFO: Served static file: static/script.js
+[2025-10-16 17:08:06] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:08:07] INFO: Request: GET /auth/register (Body length: 0, Content: )
+[2025-10-16 17:08:07] WARNING: 404 Not Found: GET /auth/register
+[2025-10-16 17:08:07] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:08:07] INFO: Served static file: static/style.css
+[2025-10-16 17:08:07] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:08:07] INFO: Served static file: static/script.js
+[2025-10-16 17:08:07] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:08:09] INFO: Request: GET /pricing (Body length: 0, Content: )
+[2025-10-16 17:08:09] WARNING: 404 Not Found: GET /pricing
+[2025-10-16 17:08:09] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:08:09] INFO: Served static file: static/style.css
+[2025-10-16 17:08:09] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:08:09] INFO: Served static file: static/script.js
+[2025-10-16 17:08:09] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:08:39] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 17:09:21] ERROR: Failed to receive data from client
+[2025-10-16 17:09:32] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 17:09:32] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:09:32] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:09:36] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:09:36] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:09:36] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:09:40] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 17:09:42] INFO: Request: GET /status (Body length: 0, Content: )
+[2025-10-16 17:09:42] WARNING: 404 Not Found: GET /status
+[2025-10-16 17:09:42] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 17:09:42] INFO: Served static file: static/script.js
+[2025-10-16 17:09:42] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 17:09:42] INFO: Served static file: static/style.css
+[2025-10-16 17:09:42] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:09:42] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:09:42] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 17:09:46] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:09:46] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:09:55] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 17:09:56] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 17:09:56] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 17:13:44] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 17:23:40] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 17:23:40] ERROR: Failed to receive data from client
+[2025-10-16 17:31:51] ERROR: Failed to receive data from client
+[2025-10-16 18:12:08] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:12:12] INFO: Logger initialized
+[2025-10-16 18:12:12] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:12:12] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:12:12] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:12:12] INFO: Added route: GET /server
+[2025-10-16 18:12:12] INFO: Added route: GET /
+[2025-10-16 18:12:12] INFO: Added static route: /static -> static
+[2025-10-16 18:12:12] INFO: Server configured with routes:
+[2025-10-16 18:12:12] INFO:   GET  / - Home page
+[2025-10-16 18:12:12] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:12:12] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:12:12] INFO:   POST /api/register - User registration
+[2025-10-16 18:12:12] INFO:   POST /api/login - User authentication
+[2025-10-16 18:12:12] INFO:   POST /api/logout - User logout
+[2025-10-16 18:12:12] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:12:12] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:12:12] INFO:   Static files served from /static
+[2025-10-16 18:12:12] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:12:16] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 18:12:17] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:12:17] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:12:17] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:12:17] INFO: Served static file: static/style.css
+[2025-10-16 18:12:17] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:12:17] INFO: Served static file: static/script.js
+[2025-10-16 18:12:17] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:12:17] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:12:19] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:12:19] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:12:19] INFO: Served static file: static/style.css
+[2025-10-16 18:12:19] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:12:19] INFO: Served static file: static/script.js
+[2025-10-16 18:12:33] ERROR: Failed to receive data from client
+[2025-10-16 18:15:25] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:15:25] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:15:25] INFO: Served static file: static/style.css
+[2025-10-16 18:15:25] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:15:25] INFO: Served static file: static/script.js
+[2025-10-16 18:15:26] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:15:26] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:15:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:15:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:15:31] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:15:31] INFO: Served static file: static/script.js
+[2025-10-16 18:15:31] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:15:31] INFO: Served static file: static/style.css
+[2025-10-16 18:15:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:15:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:15:36] ERROR: Failed to receive data from client
+[2025-10-16 18:16:23] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:16:23] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:16:23] INFO: Served static file: static/script.js
+[2025-10-16 18:16:23] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:16:23] INFO: Served static file: static/style.css
+[2025-10-16 18:16:24] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:16:24] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:16:24] INFO: Served static file: static/style.css
+[2025-10-16 18:16:24] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:16:24] INFO: Served static file: static/script.js
+[2025-10-16 18:16:25] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:16:25] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:16:26] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:16:26] INFO: Served static file: static/style.css
+[2025-10-16 18:16:26] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:16:26] INFO: Served static file: static/script.js
+[2025-10-16 18:16:26] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:16:26] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:16:31] ERROR: Failed to receive data from client
+[2025-10-16 18:17:27] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:27] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:28] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:28] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:29] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:29] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:30] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:30] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:36] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:36] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:37] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:37] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:37] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:37] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:37] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:37] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:43] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:17:43] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:17:43] INFO: Served static file: static/script.js
+[2025-10-16 18:17:43] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:17:43] INFO: Served static file: static/style.css
+[2025-10-16 18:17:45] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:45] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:45] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:17:45] INFO: Served static file: static/style.css
+[2025-10-16 18:17:45] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:17:45] INFO: Served static file: static/script.js
+[2025-10-16 18:17:45] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:17:45] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:17:50] ERROR: Failed to receive data from client
+[2025-10-16 18:18:14] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:14] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:18:14] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:18:14] INFO: Served static file: static/style.css
+[2025-10-16 18:18:14] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:18:14] INFO: Served static file: static/script.js
+[2025-10-16 18:18:14] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:18:14] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:18:14] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:14] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:18:36] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:36] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:18:38] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:38] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:18:38] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:18:38] INFO: Served static file: static/style.css
+[2025-10-16 18:18:38] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:18:38] INFO: Served static file: static/script.js
+[2025-10-16 18:18:38] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:38] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:18:39] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:18:39] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:18:47] ERROR: Failed to receive data from client
+[2025-10-16 18:18:48] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:18:48] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:18:48] INFO: Served static file: static/script.js
+[2025-10-16 18:18:48] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:18:48] INFO: Served static file: static/style.css
+[2025-10-16 18:18:48] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:18:48] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:19:52] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:19:53] INFO: Logger initialized
+[2025-10-16 18:19:53] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:19:53] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:19:53] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:19:53] INFO: Added route: GET /server
+[2025-10-16 18:19:53] INFO: Added route: GET /
+[2025-10-16 18:19:53] INFO: Added static route: /static -> static
+[2025-10-16 18:19:53] INFO: Server configured with routes:
+[2025-10-16 18:19:53] INFO:   GET  / - Home page
+[2025-10-16 18:19:53] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:19:53] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:19:53] INFO:   POST /api/register - User registration
+[2025-10-16 18:19:53] INFO:   POST /api/login - User authentication
+[2025-10-16 18:19:53] INFO:   POST /api/logout - User logout
+[2025-10-16 18:19:53] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:19:53] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:19:53] INFO:   Static files served from /static
+[2025-10-16 18:19:53] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:19:57] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:19:57] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:20:00] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:20:00] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:20:02] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:20:02] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:20:02] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:20:04] INFO: Request: GET /auth/login (Body length: 0, Content: )
+[2025-10-16 18:20:04] WARNING: 404 Not Found: GET /auth/login
+[2025-10-16 18:20:04] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:20:04] INFO: Served static file: static/script.js
+[2025-10-16 18:20:04] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:20:04] INFO: Served static file: static/style.css
+[2025-10-16 18:20:04] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:20:04] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:20:10] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 18:20:16] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:20:16] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:20:16] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:20:16] INFO: Served static file: static/script.js
+[2025-10-16 18:20:16] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:20:16] INFO: Served static file: static/style.css
+[2025-10-16 18:20:16] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:20:16] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:20:16] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:20:16] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:20:17] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:20:23] ERROR: Failed to receive data from client
+[2025-10-16 18:21:56] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:21:57] INFO: Logger initialized
+[2025-10-16 18:21:57] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:21:57] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:21:57] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:21:57] INFO: Added route: GET /server
+[2025-10-16 18:21:57] INFO: Added route: GET /
+[2025-10-16 18:21:57] INFO: Added static route: /static -> static
+[2025-10-16 18:21:57] INFO: Server configured with routes:
+[2025-10-16 18:21:57] INFO:   GET  / - Home page
+[2025-10-16 18:21:57] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:21:57] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:21:57] INFO:   POST /api/register - User registration
+[2025-10-16 18:21:57] INFO:   POST /api/login - User authentication
+[2025-10-16 18:21:57] INFO:   POST /api/logout - User logout
+[2025-10-16 18:21:57] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:21:57] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:21:57] INFO:   Static files served from /static
+[2025-10-16 18:21:57] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:22:02] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:22:18] ERROR: Failed to receive data from client
+[2025-10-16 18:22:27] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:22:43] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:22:43] ERROR: Failed to receive data from client
+[2025-10-16 18:24:45] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:24:46] INFO: Logger initialized
+[2025-10-16 18:24:46] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:24:46] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:24:46] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:24:46] INFO: Added route: GET /server
+[2025-10-16 18:24:46] INFO: Added route: GET /
+[2025-10-16 18:24:46] INFO: Added static route: /static -> static
+[2025-10-16 18:24:46] INFO: Server configured with routes:
+[2025-10-16 18:24:46] INFO:   GET  / - Home page
+[2025-10-16 18:24:46] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:24:46] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:24:46] INFO:   POST /api/register - User registration
+[2025-10-16 18:24:46] INFO:   POST /api/login - User authentication
+[2025-10-16 18:24:46] INFO:   POST /api/logout - User logout
+[2025-10-16 18:24:46] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:24:46] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:24:46] INFO:   Static files served from /static
+[2025-10-16 18:24:46] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:24:50] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:24:59] ERROR: Failed to receive data from client
+[2025-10-16 18:25:07] INFO: Request: GET /products (Body length: 0, Content: )
+[2025-10-16 18:25:07] WARNING: 404 Not Found: GET /products
+[2025-10-16 18:25:07] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:25:07] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:25:07] INFO: Served static file: static/style.css
+[2025-10-16 18:25:07] INFO: Served static file: static/script.js
+[2025-10-16 18:25:07] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:25:07] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:25:07] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:25:07] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:25:13] ERROR: Failed to receive data from client
+[2025-10-16 18:26:41] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:26:59] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:26:59] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:26:59] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:27:00] INFO: Request: GET /products (Body length: 0, Content: )
+[2025-10-16 18:27:00] WARNING: 404 Not Found: GET /products
+[2025-10-16 18:27:00] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:27:00] INFO: Served static file: static/script.js
+[2025-10-16 18:27:00] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:27:00] INFO: Served static file: static/style.css
+[2025-10-16 18:27:00] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:27:00] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:27:06] ERROR: Failed to receive data from client
+[2025-10-16 18:27:51] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:27:51] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:27:51] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:28:00] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:28:06] ERROR: Failed to receive data from client
+[2025-10-16 18:28:41] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:28:47] ERROR: Failed to receive data from client
+[2025-10-16 18:29:14] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:29:29] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:29:29] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:29:29] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:29:55] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:29:55] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:29:55] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:30:00] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:09] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:24] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:24] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:30:24] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:30:34] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:34] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:30:34] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:30:43] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:53] ERROR: Failed to receive data from client
+[2025-10-16 18:30:56] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:30:56] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:30:56] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:35:56] ERROR: Failed to receive data from client
+[2025-10-16 18:38:22] ERROR: Failed to receive data from client
+[2025-10-16 18:38:39] INFO: Request: GET /products (Body length: 0, Content: )
+[2025-10-16 18:38:39] WARNING: 404 Not Found: GET /products
+[2025-10-16 18:38:39] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:38:39] INFO: Served static file: static/style.css
+[2025-10-16 18:38:39] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:38:39] INFO: Served static file: static/script.js
+[2025-10-16 18:38:39] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:38:39] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:38:45] ERROR: Failed to receive data from client
+[2025-10-16 18:38:51] ERROR: Failed to receive data from client
+[2025-10-16 18:39:19] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:39:26] ERROR: Failed to receive data from client
+[2025-10-16 18:39:32] ERROR: Failed to receive data from client
+[2025-10-16 18:40:34] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:41:03] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:41:03] INFO: Request: GET /images/cnc-machine.jpg (Body length: 0, Content: )
+[2025-10-16 18:41:03] WARNING: 404 Not Found: GET /images/cnc-machine.jpg
+[2025-10-16 18:41:03] INFO: Request: GET /images/mitutoyo-calipers.jpg (Body length: 0, Content: )
+[2025-10-16 18:41:03] WARNING: 404 Not Found: GET /images/mitutoyo-calipers.jpg
+[2025-10-16 18:41:03] INFO: Request: GET /images/cad-software.jpg (Body length: 0, Content: )
+[2025-10-16 18:41:03] WARNING: 404 Not Found: GET /images/cad-software.jpg
+[2025-10-16 18:41:03] INFO: Request: GET /images/workshop-tools.jpg (Body length: 0, Content: )
+[2025-10-16 18:41:03] WARNING: 404 Not Found: GET /images/workshop-tools.jpg
+[2025-10-16 18:41:17] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:41:17] ERROR: Failed to receive data from client
+[2025-10-16 18:41:28] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:43:49] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:43:50] INFO: Logger initialized
+[2025-10-16 18:43:50] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:43:50] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:43:50] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:43:50] INFO: Added route: GET /server
+[2025-10-16 18:43:50] INFO: Added route: GET /
+[2025-10-16 18:43:50] INFO: Added static route: /static -> static
+[2025-10-16 18:43:50] INFO: Server configured with routes:
+[2025-10-16 18:43:50] INFO:   GET  / - Home page
+[2025-10-16 18:43:50] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:43:50] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:43:50] INFO:   POST /api/register - User registration
+[2025-10-16 18:43:50] INFO:   POST /api/login - User authentication
+[2025-10-16 18:43:50] INFO:   POST /api/logout - User logout
+[2025-10-16 18:43:50] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:43:50] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:43:50] INFO:   Static files served from /static
+[2025-10-16 18:43:50] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:43:53] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:43:53] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:43:53] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:43:57] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:43:57] WARNING: 404 Not Found: GET /blog
+[2025-10-16 18:43:57] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:43:57] INFO: Served static file: static/style.css
+[2025-10-16 18:43:57] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:43:57] INFO: Served static file: static/script.js
+[2025-10-16 18:43:57] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:43:57] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:44:17] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:44:18] INFO: Logger initialized
+[2025-10-16 18:44:18] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:44:18] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:44:18] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:44:18] INFO: Added route: GET /server
+[2025-10-16 18:44:18] INFO: Added route: GET /blog
+[2025-10-16 18:44:18] INFO: Added route: GET /
+[2025-10-16 18:44:18] INFO: Added static route: /static -> static
+[2025-10-16 18:44:18] INFO: Server configured with routes:
+[2025-10-16 18:44:18] INFO:   GET  / - Home page
+[2025-10-16 18:44:18] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:44:18] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:44:18] INFO:   POST /api/register - User registration
+[2025-10-16 18:44:18] INFO:   POST /api/login - User authentication
+[2025-10-16 18:44:18] INFO:   POST /api/logout - User logout
+[2025-10-16 18:44:18] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:44:18] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:44:18] INFO:   Static files served from /static
+[2025-10-16 18:44:18] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:44:21] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:44:21] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:44:22] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:44:22] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:44:23] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:44:23] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:44:24] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:44:26] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:44:34] ERROR: Failed to receive data from client
+[2025-10-16 18:45:15] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:46:25] INFO: Received shutdown signal, stopping server...
+[2025-10-16 18:46:46] INFO: Logger initialized
+[2025-10-16 18:46:46] INFO: Starting Advanced C Web Server...
+[2025-10-16 18:46:46] INFO: Users file not found, starting with empty user database
+[2025-10-16 18:46:46] INFO: Authentication system initialized with 0 users
+[2025-10-16 18:46:46] INFO: Added route: GET /server
+[2025-10-16 18:46:46] INFO: Added route: GET /blog
+[2025-10-16 18:46:46] INFO: Added route: GET /blogs/engine-design-process
+[2025-10-16 18:46:46] INFO: Added route: GET /
+[2025-10-16 18:46:46] INFO: Added static route: /static -> static
+[2025-10-16 18:46:46] INFO: Server configured with routes:
+[2025-10-16 18:46:46] INFO:   GET  / - Home page
+[2025-10-16 18:46:46] INFO:   GET  /api/status - Server status API
+[2025-10-16 18:46:46] INFO:   POST /submit - Handle form submissions
+[2025-10-16 18:46:46] INFO:   POST /api/register - User registration
+[2025-10-16 18:46:46] INFO:   POST /api/login - User authentication
+[2025-10-16 18:46:46] INFO:   POST /api/logout - User logout
+[2025-10-16 18:46:46] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 18:46:46] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 18:46:46] INFO:   Static files served from /static
+[2025-10-16 18:46:46] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 18:46:49] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:46:50] INFO: Request: GET /blogs/engine-design-process.html (Body length: 0, Content: )
+[2025-10-16 18:46:50] WARNING: 404 Not Found: GET /blogs/engine-design-process.html
+[2025-10-16 18:46:50] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:46:50] INFO: Served static file: static/script.js
+[2025-10-16 18:46:50] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:46:50] INFO: Served static file: static/style.css
+[2025-10-16 18:46:50] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:46:50] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:46:52] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:46:53] INFO: Request: GET /blogs/engine-design-process.html (Body length: 0, Content: )
+[2025-10-16 18:46:53] WARNING: 404 Not Found: GET /blogs/engine-design-process.html
+[2025-10-16 18:46:53] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:46:53] INFO: Served static file: static/style.css
+[2025-10-16 18:46:53] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:46:53] INFO: Served static file: static/script.js
+[2025-10-16 18:46:53] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:46:53] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:03] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:47:03] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:08] INFO: Request: GET /blogs/engine-design-process.html (Body length: 0, Content: )
+[2025-10-16 18:47:08] WARNING: 404 Not Found: GET /blogs/engine-design-process.html
+[2025-10-16 18:47:08] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:47:08] INFO: Served static file: static/script.js
+[2025-10-16 18:47:08] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:47:08] INFO: Served static file: static/style.css
+[2025-10-16 18:47:08] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:47:08] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:19] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:47:19] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:47:19] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:47:25] ERROR: Failed to receive data from client
+[2025-10-16 18:47:26] INFO: Request: GET /blogs (Body length: 0, Content: )
+[2025-10-16 18:47:26] WARNING: 404 Not Found: GET /blogs
+[2025-10-16 18:47:26] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:47:26] INFO: Served static file: static/script.js
+[2025-10-16 18:47:26] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:47:26] INFO: Served static file: static/style.css
+[2025-10-16 18:47:26] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:47:26] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:28] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:47:30] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 18:47:33] INFO: Request: GET /blog.html (Body length: 0, Content: )
+[2025-10-16 18:47:33] WARNING: 404 Not Found: GET /blog.html
+[2025-10-16 18:47:34] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:47:34] INFO: Served static file: static/script.js
+[2025-10-16 18:47:34] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:47:34] INFO: Served static file: static/style.css
+[2025-10-16 18:47:34] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:47:34] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:46] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:47:46] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:47:46] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:47:50] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:47:51] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 18:47:52] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:47:54] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:47:59] ERROR: Failed to receive data from client
+[2025-10-16 18:49:25] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:49:25] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:49:25] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:49:28] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:49:30] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:49:36] ERROR: Failed to receive data from client
+[2025-10-16 18:49:59] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:50:01] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:50:06] ERROR: Failed to receive data from client
+[2025-10-16 18:50:13] INFO: Request: GET /blogs/engine-design-process.html (Body length: 0, Content: )
+[2025-10-16 18:50:13] WARNING: 404 Not Found: GET /blogs/engine-design-process.html
+[2025-10-16 18:50:13] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:50:13] INFO: Served static file: static/script.js
+[2025-10-16 18:50:13] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:50:13] INFO: Served static file: static/style.css
+[2025-10-16 18:50:13] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:50:13] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:50:14] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:50:31] INFO: Request: GET /products (Body length: 0, Content: )
+[2025-10-16 18:50:31] WARNING: 404 Not Found: GET /products
+[2025-10-16 18:50:31] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 18:50:31] INFO: Served static file: static/script.js
+[2025-10-16 18:50:31] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 18:50:31] INFO: Served static file: static/style.css
+[2025-10-16 18:50:31] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:50:31] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:50:31] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 18:50:31] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 18:50:32] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:50:40] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:50:40] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-16 18:50:40] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-16 18:50:43] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:50:45] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 18:50:46] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:50:48] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 18:50:49] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:51:04] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:51:12] ERROR: Failed to receive data from client
+[2025-10-16 18:51:55] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:51:55] ERROR: Failed to receive data from client
+[2025-10-16 18:51:56] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:51:59] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:52:01] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:52:06] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:52:07] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:52:13] ERROR: Failed to receive data from client
+[2025-10-16 18:52:15] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:52:21] ERROR: Failed to receive data from client
+[2025-10-16 18:53:17] ERROR: Failed to receive data from client
+[2025-10-16 18:55:12] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:55:15] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:55:16] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 18:55:22] ERROR: Failed to receive data from client
+[2025-10-16 18:55:29] ERROR: Failed to receive data from client
+[2025-10-16 18:56:54] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 18:57:00] ERROR: Failed to receive data from client
+[2025-10-16 18:58:53] ERROR: Failed to receive data from client
+[2025-10-16 18:59:06] ERROR: Failed to receive data from client
+[2025-10-16 19:01:06] INFO: Request: GET /datasheets/50cc.pdf (Body length: 0, Content: )
+[2025-10-16 19:01:06] WARNING: 404 Not Found: GET /datasheets/50cc.pdf
+[2025-10-16 19:01:07] INFO: Request: GET /datasheets/50cc.pdf (Body length: 0, Content: )
+[2025-10-16 19:01:07] WARNING: 404 Not Found: GET /datasheets/50cc.pdf
+[2025-10-16 19:01:07] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-16 19:01:07] INFO: Served static file: static/style.css
+[2025-10-16 19:01:07] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-16 19:01:07] INFO: Served static file: static/script.js
+[2025-10-16 19:01:07] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-16 19:01:07] WARNING: 404 Not Found: GET /api/status
+[2025-10-16 19:01:08] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 19:01:16] ERROR: Failed to receive data from client
+[2025-10-16 19:01:39] ERROR: Failed to receive data from client
+[2025-10-16 19:01:58] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 19:02:46] ERROR: Failed to receive data from client
+[2025-10-16 19:03:20] ERROR: Failed to receive data from client
+[2025-10-16 19:04:27] ERROR: Failed to receive data from client
+[2025-10-16 19:04:51] ERROR: Failed to receive data from client
+[2025-10-16 19:05:01] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 19:05:01] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 19:05:08] ERROR: Failed to receive data from client
+[2025-10-16 19:05:32] INFO: Request: GET /blogs/engine-design-process (Body length: 0, Content: )
+[2025-10-16 19:05:35] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 19:05:44] INFO: Request: GET /server (Body length: 0, Content: )
+[2025-10-16 19:05:50] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 19:05:51] INFO: Request: GET /blog (Body length: 0, Content: )
+[2025-10-16 19:05:52] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-16 19:05:58] ERROR: Failed to receive data from client
+[2025-10-16 19:05:58] INFO: Received shutdown signal, stopping server...
+[2025-10-16 19:06:13] INFO: Logger initialized
+[2025-10-16 19:06:13] INFO: Starting Advanced C Web Server...
+[2025-10-16 19:06:13] INFO: Users file not found, starting with empty user database
+[2025-10-16 19:06:13] INFO: Authentication system initialized with 0 users
+[2025-10-16 19:06:13] INFO: Added route: GET /server
+[2025-10-16 19:06:13] INFO: Added route: GET /blog
+[2025-10-16 19:06:13] INFO: Added route: GET /blogs/engine-design-process
+[2025-10-16 19:06:13] INFO: Added route: GET /
+[2025-10-16 19:06:13] INFO: Added static route: /static -> static
+[2025-10-16 19:06:13] INFO: Server configured with routes:
+[2025-10-16 19:06:13] INFO:   GET  / - Home page
+[2025-10-16 19:06:13] INFO:   GET  /api/status - Server status API
+[2025-10-16 19:06:13] INFO:   POST /submit - Handle form submissions
+[2025-10-16 19:06:13] INFO:   POST /api/register - User registration
+[2025-10-16 19:06:13] INFO:   POST /api/login - User authentication
+[2025-10-16 19:06:13] INFO:   POST /api/logout - User logout
+[2025-10-16 19:06:13] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-16 19:06:13] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-16 19:06:13] INFO:   Static files served from /static
+[2025-10-16 19:06:13] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-16 19:06:35] ERROR: Failed to receive data from client
+[2025-10-16 19:09:20] ERROR: Failed to receive data from client
+[2025-10-16 19:10:10] ERROR: Failed to receive data from client
+[2025-10-18 10:52:14] INFO: Logger initialized
+[2025-10-18 10:52:14] INFO: Starting Advanced C Web Server...
+[2025-10-18 10:52:14] INFO: Users file not found, starting with empty user database
+[2025-10-18 10:52:14] INFO: Authentication system initialized with 0 users
+[2025-10-18 10:52:14] INFO: Added route: GET /server
+[2025-10-18 10:52:14] INFO: Added route: GET /blog
+[2025-10-18 10:52:14] INFO: Added route: GET /blogs/engine-design-process
+[2025-10-18 10:52:14] INFO: Added route: GET /
+[2025-10-18 10:52:14] INFO: Added static route: /static -> static
+[2025-10-18 10:52:14] INFO: Server configured with routes:
+[2025-10-18 10:52:14] INFO:   GET  / - Home page
+[2025-10-18 10:52:14] INFO:   GET  /api/status - Server status API
+[2025-10-18 10:52:14] INFO:   POST /submit - Handle form submissions
+[2025-10-18 10:52:14] INFO:   POST /api/register - User registration
+[2025-10-18 10:52:14] INFO:   POST /api/login - User authentication
+[2025-10-18 10:52:14] INFO:   POST /api/logout - User logout
+[2025-10-18 10:52:14] INFO:   GET  /api/profile - User profile (requires auth)
+[2025-10-18 10:52:14] INFO:   GET  /api/users - List all users (admin only)
+[2025-10-18 10:52:14] INFO:   Static files served from /static
+[2025-10-18 10:52:14] INFO: Server started successfully on http://0.0.0.0:5000
+[2025-10-18 10:53:02] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-18 10:53:04] INFO: Request: GET /favicon.ico (Body length: 0, Content: )
+[2025-10-18 10:53:04] WARNING: 404 Not Found: GET /favicon.ico
+[2025-10-18 10:53:06] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-18 10:53:13] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-18 10:53:22] ERROR: Failed to receive data from client
+[2025-10-18 10:53:30] ERROR: Failed to receive data from client
+[2025-10-18 10:53:48] ERROR: Failed to receive data from client
+[2025-10-18 10:53:48] INFO: Request: GET /eaea (Body length: 0, Content: )
+[2025-10-18 10:53:48] WARNING: 404 Not Found: GET /eaea
+[2025-10-18 10:53:48] INFO: Request: GET /static/style.css (Body length: 0, Content: )
+[2025-10-18 10:53:48] INFO: Served static file: static/style.css
+[2025-10-18 10:53:48] INFO: Request: GET /static/script.js (Body length: 0, Content: )
+[2025-10-18 10:53:48] INFO: Served static file: static/script.js
+[2025-10-18 10:53:48] INFO: Request: GET /api/status (Body length: 0, Content: )
+[2025-10-18 10:53:48] WARNING: 404 Not Found: GET /api/status
+[2025-10-18 10:53:55] INFO: Request: GET / (Body length: 0, Content: )
+[2025-10-18 10:54:00] ERROR: Failed to receive data from client
+[2025-10-18 10:54:09] ERROR: Failed to receive data from client
+[2025-10-18 10:55:45] ERROR: Failed to receive data from client

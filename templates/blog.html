@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LibreGrad Engines - Blog</title>
+  <meta name="description" content="Updates, engineering insights, and news from LibreGrad Engines." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    /* Reuse styles from your main page */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      color: #1a1a1a !important;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .navbar-brand i {
+      color: #666;
+    }
+
+    .nav-link {
+      color: #666 !important;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-left: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #1a1a1a !important;
+    }
+
+    .nav-link i {
+      opacity: 0.7;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 0;
+    }
+
+    h1.page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }
+
+    #searchInput {
+    max-width: 480px;
+    margin: 0 auto 2rem auto;
+    display: block;
+    padding: 0.75rem 1rem 0.75rem 3rem; /* left padding for icon */
+    font-size: 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.07);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/></svg>') no-repeat 12px center;
+    background-size: 16px 16px;
+    }
+
+    #searchInput:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 4px 12px rgb(26 26 26 / 0.15);
+    }
+
+
+    #searchInput:focus {
+      outline: none;
+      border-color: #1a1a1a;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-content {
+      padding: 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-content h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      flex-grow: 1;
+    }
+
+    .blog-content p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      flex-grow: 0;
+    }
+
+    .blog-content .read-more {
+      margin-top: auto;
+      align-self: flex-start;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      border: 1px solid #1a1a1a;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .blog-content .read-more:hover {
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #fafafa;
+      border-top: 1px solid #e5e5e5;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    footer i {
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      h1.page-title {
+        font-size: 2rem;
+      }
+
+      .nav-link {
+        margin-left: 0;
+        padding: 0.5rem 1rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-cube"></i> LibreGrad Engines
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="/products"><i class="fas fa-cogs me-1"></i>Products</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog.html"><i class="fas fa-blog me-1"></i>Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="page-title">LibreGrad Blog</h1>
+    <input type="text" id="searchInput" placeholder="Search blog posts..." aria-label="Search blog posts" />
+
+    <section class="blog-grid" id="blogGrid">
+    <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=80" alt="Engine Design Process" />
+        <div class="blog-content">
+        <h2>Behind the Scenes: Our Engine Design Process</h2>
+        <p>Discover how our team takes an engine from concept to creation, combining precision engineering and passion.</p>
+        <a href="./blogs/engine-design-process.html" class="read-more">Read More</a>
+        </div>
+    </article>
+
+    <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?auto=format&fit=crop&w=800&q=80" alt="High-Performance Testing" />
+        <div class="blog-content">
+        <h2>How We Test for High Performance and Reliability</h2>
+        <p>Learn about our rigorous testing protocols that ensure every engine performs under pressure.</p>
+        <a href="/blogs/engine-design-process" class="read-more">Read More</a>
+        </div>
+    </article>
+
+    <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1509228627152-9b8d60947fa0?auto=format&fit=crop&w=800&q=80" alt="Community Projects" />
+        <div class="blog-content">
+        <h2>Community Projects and Open Source Contributions</h2>
+        <p>We believe in open engineering — see how our work is empowering the maker community worldwide.</p>
+        <a href="./blogs/community-projects.html" class="read-more">Read More</a>
+        </div>
+    </article>
+
+    <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80" alt="Future Engine Concepts" />
+        <div class="blog-content">
+        <h2>What’s Next? Sneak Peek at Future Engine Concepts</h2>
+        <p>Get an exclusive look at the innovations we’re working on to push performance further.</p>
+        <a href="./blogs/future-engine-concepts.html" class="read-more">Read More</a>
+        </div>
+    </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <i class="fas fa-cube me-2"></i>
+        LibreGrad Engines — Building Performance by Hand | &copy; 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      blogCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        card.style.display = (title.includes(filter) || desc.includes(filter)) ? 'flex' : 'none';
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

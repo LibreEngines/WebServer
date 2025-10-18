@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Portal | C Web Server</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .auth-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .auth-box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 350px;
+        }
+        .auth-box h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .profile-section {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-top: 30px;
+        }
+        .profile-info {
+            margin-top: 15px;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .token-display {
+            word-break: break-all;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .admin-section {
+            display: none;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tab-container {
+            margin-top: 30px;
+        }
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #3498db;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #3498db;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Advanced C Web Server - Authentication Portal</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="auth-section">
+            <div class="auth-box" id="login-box">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <div id="login-response" class="response"></div>
+            </div>
+
+            <div class="auth-box" id="register-box">
+                <h2>Register</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <div id="register-response" class="response"></div>
+            </div>
+        </div>
+
+        <div class="profile-section" id="profile-section">
+            <h2>User Profile</h2>
+            <div class="profile-info" id="profile-info">
+                <!-- Profile data will be inserted here -->
+            </div>
+            <div class="token-display" id="token-display">
+                <!-- Session token will be displayed here -->
+            </div>
+            <button id="logout-btn" style="margin-top: 20px;">Logout</button>
+            <div id="logout-response" class="response" style="margin-top: 15px;"></div>
+        </div>
+
+        <div class="admin-section" id="admin-section">
+            <h2>Admin Panel</h2>
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="users-tab">Users</button>
+                    <button class="tab-btn" data-tab="stats-tab">Statistics</button>
+                </div>
+                <div class="tab-content active" id="users-tab">
+                    <button id="refresh-users">Refresh Users</button>
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Users data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-content" id="stats-tab">
+                    <p>Server statistics will be displayed here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM elements
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const logoutBtn = document.getElementById('logout-btn');
+        const profileSection = document.getElementById('profile-section');
+        const adminSection = document.getElementById('admin-section');
+        const refreshUsersBtn = document.getElementById('refresh-users');
+        const usersTable = document.getElementById('users-table').querySelector('tbody');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        // Current session token
+        let sessionToken = null;
+        let currentUser = null;
+
+        // Tab switching
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Update active tab button
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show corresponding tab content
+                tabContents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Login form handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+                
+                const data = await response.json();
+                
+                const responseDiv = document.getElementById('login-response');
+                responseDiv.style.display = 'block';
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.innerHTML = `Login successful! Welcome ${data.user.username}`;
+                    
+                    // Store the session token
+                    sessionToken = data.token;
+                    currentUser = data.user;
+                    
+                    // Show profile section
+                    showProfile(data.user, data.token);
+                    
+                    // If user is admin, show admin section
+                    if (data.user.role === 'admin') {
+                        adminSection.style.display = 'block';
+                        loadUsers();
+                    }
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = data.error || 'Login failed';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                const responseDiv = document.getElementById('login-response');
+                responseDiv.style.display = 'block';
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'An error occurred during login';
+            }
+        });
+
+        // Register form handler
+    // Register form handler - fixed version
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('register-username').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'  // This header is crucial
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
+            
+            const data = await response.json();
+            
+            const responseDiv = document.getElementById('register-response');
+            responseDiv.style.display = 'block';
+            
+            if (data.success) {
+                responseDiv.className = 'response success';
+                responseDiv.textContent = `Registration successful! User ID: ${data.user_id}`;
+                
+                // Clear form
+                registerForm.reset();
+            } else {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = data.error || 'Registration failed';
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            const responseDiv = document.getElementById('register-response');
+            responseDiv.style.display = 'block';
+            responseDiv.className = 'response error';
+            responseDiv.textContent = 'An error occurred during registration';
+        }
+    });
+
+        // Logout handler
+        logoutBtn.addEventListener('click', async () => {
+            if (!sessionToken) return;
+            
+            try {
+                const response = await fetch('/api/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${sessionToken}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                const responseDiv = document.getElementById('logout-response');
+                responseDiv.style.display = 'block';
+                
+                if (data.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = data.message;
+                    
+                    // Clear session
+                    sessionToken = null;
+                    currentUser = null;
+                    
+                    // Hide profile and admin sections
+                    profileSection.style.display = 'none';
+                    adminSection.style.display = 'none';
+                    
+                    // Clear forms
+                    loginForm.reset();
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = data.error || 'Logout failed';
+                }
+            } catch (error) {
+                console.error('Logout error:', error);
+                const responseDiv = document.getElementById('logout-response');
+                responseDiv.style.display = 'block';
+                responseDiv.className = 'response error';
+                responseDiv.textContent = 'An error occurred during logout';
+            }
+        });
+
+        // Refresh users list
+        refreshUsersBtn.addEventListener('click', loadUsers);
+
+        // Function to show profile
+        function showProfile(user, token) {
+            profileSection.style.display = 'block';
+            
+            const profileInfo = document.getElementById('profile-info');
+            profileInfo.innerHTML = `
+                <p><strong>Username:</strong> ${user.username}</p>
+                <p><strong>Role:</strong> ${user.role}</p>
+                <p><strong>ID:</strong> ${user.id}</p>
+            `;
+            
+            const tokenDisplay = document.getElementById('token-display');
+            tokenDisplay.textContent = `Session Token: ${token}`;
+        }
+
+        // Function to load users (admin only)
+        async function loadUsers() {
+            if (!sessionToken || !currentUser || currentUser.role !== 'admin') return;
+            
+            try {
+                const response = await fetch('/api/users', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${sessionToken}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Clear existing table rows
+                    usersTable.innerHTML = '';
+                    
+                    // Add new rows
+                    data.users.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${user.id}</td>
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${user.role}</td>
+                            <td>${new Date(user.last_login * 1000).toLocaleString()}</td>
+                            <td>${user.is_active ? 'Active' : 'Inactive'}</td>
+                        `;
+                        usersTable.appendChild(row);
+                    });
+                } else {
+                    console.error('Failed to load users:', data.error);
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+
+        // Check if already logged in (on page load)
+        async function checkSession() {
+            try {
+                const response = await fetch('/api/profile', {
+                    method: 'GET',
+                    headers: sessionToken ? {
+                        'Authorization': `Bearer ${sessionToken}`
+                    } : {}
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // We have a valid session
+                    currentUser = data.user;
+                    showProfile(data.user, sessionToken);
+                    
+                    // If user is admin, show admin section
+                    if (data.user.role === 'admin') {
+                        adminSection.style.display = 'block';
+                        loadUsers();
+                    }
+                }
+            } catch (error) {
+                console.error('Session check error:', error);
+            }
+        }
+
+        // Initialize
+        checkSession();
+    </script>
+</body>
+</html>
