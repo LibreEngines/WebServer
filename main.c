@@ -63,7 +63,7 @@ void handle_maintenance(http_request_t *request, http_response_t *response) {
 void handle_home(http_request_t *request, http_response_t *response) {
     template_context_t *ctx = template_context_create();
     template_context_set(ctx, "title", "LibreGrad Engines");    
-    char *rendered = template_render_file("templates/   .html", ctx);
+    char *rendered = template_render_file("templates/landing2.html", ctx);
     if (rendered) {
         http_response_set_body(response, rendered);
         http_response_set_header(response, "Content-Type", "text/html");
@@ -76,6 +76,46 @@ void handle_home(http_request_t *request, http_response_t *response) {
     
     template_context_destroy(ctx);
 }
+////////////////////////////////////////////////////////////////////////////////////////////////
+// Parts Route
+////////////////////////////////////////////////////////////////////////////////////////////////
+void handle_parts(http_request_t *request, http_response_t *response) {
+    template_context_t *ctx = template_context_create();
+    template_context_set(ctx, "title", "LibreGrad Engines");    
+    char *rendered = template_render_file("templates/parts.html", ctx);
+    if (rendered) {
+        http_response_set_body(response, rendered);
+        http_response_set_header(response, "Content-Type", "text/html");
+        http_response_set_status(response, 200);
+        free(rendered);
+    } else {
+        http_response_set_status(response, 500);
+        http_response_set_body(response, "Internal Server Error");
+    }
+    
+    template_context_destroy(ctx);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+// OSS Route
+////////////////////////////////////////////////////////////////////////////////////////////////
+void handle_oss(http_request_t *request, http_response_t *response) {
+    template_context_t *ctx = template_context_create();
+    template_context_set(ctx, "title", "LibreGrad Engines");    
+    char *rendered = template_render_file("templates/oss.html", ctx);
+    if (rendered) {
+        http_response_set_body(response, rendered);
+        http_response_set_header(response, "Content-Type", "text/html");
+        http_response_set_status(response, 200);
+        free(rendered);
+    } else {
+        http_response_set_status(response, 500);
+        http_response_set_body(response, "Internal Server Error");
+    }
+    
+    template_context_destroy(ctx);
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 void handle_blog(http_request_t *request, http_response_t *response) {
@@ -595,6 +635,9 @@ int main() {
     // router_add_route(server->router, "POST", "/submit", handle_post_data);
     router_add_route(server->router, "GET", "/server", handle_server);
     router_add_route(server->router, "GET", "/blog", handle_blog);
+    router_add_route(server->router, "GET", "/parts", handle_parts);
+    router_add_route(server->router, "GET", "/oss", handle_oss);
+
 
     // Blogs
     router_add_route(server->router, "GET", "/blogs/engine-design-process", handle_engine_design_process_blog);

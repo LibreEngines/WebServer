@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Source - LibreGrad Engines</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      color: #1a1a1a !important;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .navbar-brand i {
+      color: #666;
+    }
+
+    .nav-link {
+      color: #666 !important;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-left: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #1a1a1a !important;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 0;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-section .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .section-divider {
+      margin: 3rem 0;
+      border: none;
+      height: 1px;
+      background: #e5e5e5;
+      opacity: 1;
+    }
+
+    .section-header {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .repo-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .repo-card:hover {
+      border-color: #d4d4d4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .repo-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .repo-icon {
+      width: 40px;
+      height: 40px;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .repo-icon i {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .repo-title {
+      flex: 1;
+    }
+
+    .repo-title h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .repo-title .language {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .repo-description {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .repo-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .meta-item i {
+      margin-right: 0.4rem;
+      color: #999;
+    }
+
+    .repo-footer {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-primary {
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
+      color: #ffffff;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-primary:hover {
+      background: #000000;
+      border-color: #000000;
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      color: #666;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-outline:hover {
+      background: #f8f8f8;
+      border-color: #d4d4d4;
+      color: #1a1a1a;
+    }
+
+    .license-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 2rem;
+      background: #fafafa;
+      margin-bottom: 2rem;
+    }
+
+    .license-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .license-card p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .license-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .license-card li {
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: #666;
+      display: flex;
+      align-items: center;
+    }
+
+    .license-card li i {
+      margin-right: 0.75rem;
+      color: #1e7e34;
+    }
+
+    .contribute-section {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contribute-section h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .contribute-section p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .contribute-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: #1a1a1a;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #fafafa;
+      border-top: 1px solid #e5e5e5;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .repo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-cube"></i> LibreGrad Engines
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/parts"><i class="fas fa-gear me-1"></i>Parts</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-github me-1"></i>Open Source</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="hero-section">
+      <h1><i class="fab fa-osi me-3"></i>Libre & Open Source</h1>
+      <p class="subtitle">
+        We believe in transparent engineering. All our designs, CAD files, technical documentation, and build instructions are freely available under open source licenses. Fork our projects, learn from them, improve them, and build your own.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Active Repositories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">847</div>
+        <div class="stat-label">GitHub Stars</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">156</div>
+        <div class="stat-label">Community Contributors</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.4k</div>
+        <div class="stat-label">Downloads</div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="section-header">Our Repositories</h2>
+        <p class="section-description">
+          Browse our collection of open source engine designs, CAD files, simulation tools, and documentation. Each repository includes everything you need to understand, build, or modify our engines.
+        </p>
+
+        <div class="repo-grid">
+          <!-- Repo Card 1 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-cube"></i>
+              </div>
+              <div class="repo-title">
+                <h3>50cc-engine-cad</h3>
+                <span class="language">Fusion 360 / STEP</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              Complete CAD files for our 50cc 4-stroke engine including all components, assemblies, and technical drawings.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>284</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>47</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>612</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/50cc-engine-cad" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-download me-2"></i>Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Repo Card 2 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="repo-title">
+                <h3>engine-documentation</h3>
+                <span class="language">Markdown / LaTeX</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              Comprehensive build guides, assembly instructions, maintenance procedures, and troubleshooting documentation.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>156</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>32</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>891</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/engine-documentation" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-book me-2"></i>Read Docs
+              </a>
+            </div>
+          </div>
+
+          <!-- Repo Card 3 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="repo-title">
+                <h3>engine-simulator</h3>
+                <span class="language">Python / NumPy</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              Thermodynamic simulation tool for modeling engine performance, predicting power curves, and optimizing designs.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>192</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>28</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>445</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/engine-simulator" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-play me-2"></i>Try Demo
+              </a>
+            </div>
+          </div>
+
+          <!-- Repo Card 4 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-cog"></i>
+              </div>
+              <div class="repo-title">
+                <h3>65cc-performance</h3>
+                <span class="language">Fusion 360 / STEP</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              Complete design files for the 65cc 2-stroke performance engine with enhanced cooling and porting diagrams.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>218</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>39</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>523</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/65cc-performance" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-download me-2"></i>Download
+              </a>
+            </div>
+          </div>
+
+          <!-- Repo Card 5 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-wrench"></i>
+              </div>
+              <div class="repo-title">
+                <h3>machining-scripts</h3>
+                <span class="language">G-code / Python</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              CNC machining scripts, toolpaths, and automation utilities for manufacturing engine components.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>89</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>15</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>267</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/machining-scripts" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-info-circle me-2"></i>Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- Repo Card 6 -->
+          <div class="repo-card">
+            <div class="repo-header">
+              <div class="repo-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="repo-title">
+                <h3>dyno-data-logger</h3>
+                <span class="language">Arduino / C++</span>
+              </div>
+            </div>
+            <p class="repo-description">
+              Arduino-based dynamometer data acquisition system with real-time performance monitoring and logging.
+            </p>
+            <div class="repo-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>134</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-code-branch"></i>
+                <span>21</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-download"></i>
+                <span>389</span>
+              </div>
+            </div>
+            <div class="repo-footer">
+              <a href="https://github.com/LibreEngines/dyno-data-logger" class="btn-primary" target="_blank">
+                <i class="fab fa-github me-2"></i>View Repo
+              </a>
+              <a href="#" class="btn-outline">
+                <i class="fas fa-microchip me-2"></i>Hardware
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="section-header">Licensing & Usage</h2>
+        
+        <div class="license-card">
+          <h3><i class="fas fa-balance-scale me-2"></i>Open Source License</h3>
+          <p>
+            All LibreGrad Engines designs and documentation are released under the <strong>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</strong> license. Our software tools use the <strong>MIT License</strong>.
+          </p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i>Use designs for personal or commercial projects</li>
+            <li><i class="fas fa-check-circle"></i>Modify and improve our designs freely</li>
+            <li><i class="fas fa-check-circle"></i>Share your modifications with the community</li>
+            <li><i class="fas fa-check-circle"></i>Attribute LibreGrad Engines in derivative works</li>
+            <li><i class="fas fa-check-circle"></i>Build and sell engines based on our designs</li>
+          </ul>
+        </div>
+
+        <div class="license-card">
+          <h3><i class="fas fa-book-open me-2"></i>Philosophy</h3>
+          <p>
+            We believe that engineering knowledge should be accessible to everyone. By open sourcing our designs, we hope to inspire the next generation of builders, foster innovation, and create a community where ideas can be freely shared and improved upon.
+          </p>
+          <p>
+            Whether you're a student learning about engines, a hobbyist building a custom project, or a professional developing new products, our designs are here for you to use, learn from, and build upon.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="contribute-section">
+          <h3><i class="fas fa-users me-2"></i>Contribute to the Project</h3>
+          <p>
+            We welcome contributions from the community! Whether you've found a bug, want to improve documentation, or have a brilliant idea for an enhancement, we'd love to hear from you.
+          </p>
+
+          <div class="contribute-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h4>Fork the Repository</h4>
+              <p>Start by forking the repository you want to contribute to on GitHub.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h4>Make Your Changes</h4>
+              <p>Create a new branch and make your improvements or fixes.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h4>Test Thoroughly</h4>
+              <p>Ensure your changes work as expected and don't break existing functionality.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <h4>Submit a Pull Request</h4>
+              <p>Create a detailed pull request describing your changes and their benefits.</p>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <a href="https://github.com/LibreEngines" class="btn-primary me-2" target="_blank">
+              <i class="fab fa-github me-2"></i>Visit GitHub
+            </a>
+            <a href="#" class="btn-outline">
+              <i class="fas fa-book me-2"></i>Contribution Guide
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p>
+        <i class="fas fa-cube me-2"></i>
+        LibreGrad Engines — Building Performance by Hand | &copy; 2025
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

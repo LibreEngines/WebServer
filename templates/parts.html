@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parts Store - LibreGrad Engines</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      color: #1a1a1a !important;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .navbar-brand i {
+      color: #666;
+    }
+
+    .nav-link {
+      color: #666 !important;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-left: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #1a1a1a !important;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 0;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 2rem 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-section .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .filter-section {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+
+    .filter-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .filter-group label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .part-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .part-card:hover {
+      border-color: #d4d4d4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .part-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .part-icon {
+      width: 48px;
+      height: 48px;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .part-icon i {
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    .part-title h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .part-code {
+      font-size: 0.85rem;
+      color: #999;
+      margin: 0;
+    }
+
+    .part-description {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .part-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      color: #666;
+    }
+
+    .meta-item i {
+      margin-right: 0.4rem;
+      color: #999;
+    }
+
+    .part-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .stock-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .in-stock {
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    .low-stock {
+      background: #fff4e5;
+      color: #e67700;
+    }
+
+    .out-stock {
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    .btn-primary {
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: #000000;
+      border-color: #000000;
+    }
+
+    .btn-primary:disabled {
+      background: #e5e5e5;
+      border-color: #e5e5e5;
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .results-count {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .sort-dropdown {
+      padding: 0.5rem 1rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    footer {
+      background: #fafafa;
+      border-top: 1px solid #e5e5e5;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .parts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-cube"></i> LibreGrad Engines
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/oss"><i class="fab fa-github me-1"></i>Open-Source</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-box me-1"></i>Parts Store</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="hero-section">
+      <h1>Engine Parts Store</h1>
+      <p class="subtitle">Quality replacement parts and performance upgrades for LibreGrad engines</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 mb-4">
+        <div class="filter-section">
+          <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Filter Parts</h4>
+          
+          <div class="filter-group">
+            <label>Engine Model</label>
+            <select id="engineFilter">
+              <option value="">All Engines</option>
+              <option value="50cc">50cc 4-Stroke</option>
+              <option value="65cc">65cc 2-Stroke</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Category</label>
+            <select id="categoryFilter">
+              <option value="">All Categories</option>
+              <option value="engine">Engine Components</option>
+              <option value="fuel">Fuel System</option>
+              <option value="ignition">Ignition System</option>
+              <option value="cooling">Cooling System</option>
+              <option value="exhaust">Exhaust System</option>
+              <option value="gaskets">Gaskets & Seals</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Search Parts</label>
+            <input type="text" id="searchInput" placeholder="Search by name or code...">
+          </div>
+
+          <div class="filter-group">
+            <label>Price Range</label>
+            <select id="priceFilter">
+              <option value="">All Prices</option>
+              <option value="0-25">Under $25</option>
+              <option value="25-50">$25 - $50</option>
+              <option value="50-100">$50 - $100</option>
+              <option value="100-999">Over $100</option>
+            </select>
+          </div>
+
+          <button class="btn-primary mt-3" onclick="resetFilters()">
+            <i class="fas fa-redo me-2"></i>Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+        <div class="results-header">
+          <div class="results-count" id="resultsCount">Showing 12 parts</div>
+          <select class="sort-dropdown" id="sortSelect">
+            <option value="name">Sort by Name</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="stock">In Stock First</option>
+          </select>
+        </div>
+
+        <div class="parts-grid" id="partsGrid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p>
+        <i class="fas fa-cube me-2"></i>
+        LibreGrad Engines — Building Performance by Hand | &copy; 2025
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const partsData = [
+      {
+        id: 1,
+        name: "Piston Assembly",
+        code: "LGE-50-PST-01",
+        description: "High-quality forged aluminum piston with rings and pin for 50cc engine",
+        price: 45.99,
+        engine: "50cc",
+        category: "engine",
+        stock: "in-stock",
+        icon: "circle"
+      },
+      {
+        id: 2,
+        name: "Cylinder Head",
+        code: "LGE-50-CYL-02",
+        description: "Complete cylinder head assembly with valves and springs",
+        price: 89.99,
+        engine: "50cc",
+        category: "engine",
+        stock: "in-stock",
+        icon: "cog"
+      },
+      {
+        id: 3,
+        name: "Carburetor Kit",
+        code: "LGE-50-CARB-01",
+        description: "Complete carburetor with jets and gaskets for optimal fuel delivery",
+        price: 67.50,
+        engine: "50cc",
+        category: "fuel",
+        stock: "low-stock",
+        icon: "filter"
+      },
+      {
+        id: 4,
+        name: "Spark Plug",
+        code: "LGE-ALL-SPK-01",
+        description: "NGK compatible spark plug for all LibreGrad engines",
+        price: 8.99,
+        engine: "50cc",
+        category: "ignition",
+        stock: "in-stock",
+        icon: "bolt"
+      },
+      {
+        id: 5,
+        name: "Gasket Set Complete",
+        code: "LGE-50-GSK-01",
+        description: "Full engine gasket and seal kit for complete rebuild",
+        price: 34.99,
+        engine: "50cc",
+        category: "gaskets",
+        stock: "in-stock",
+        icon: "layer-group"
+      },
+      {
+        id: 6,
+        name: "Crankshaft Assembly",
+        code: "LGE-50-CRK-01",
+        description: "Balanced crankshaft with bearings for smooth operation",
+        price: 125.00,
+        engine: "50cc",
+        category: "engine",
+        stock: "low-stock",
+        icon: "sync"
+      },
+      {
+        id: 7,
+        name: "Exhaust Manifold",
+        code: "LGE-50-EXH-01",
+        description: "Performance exhaust manifold with premium heat treatment",
+        price: 56.50,
+        engine: "50cc",
+        category: "exhaust",
+        stock: "in-stock",
+        icon: "wind"
+      },
+      {
+        id: 8,
+        name: "Ignition Coil",
+        code: "LGE-50-IGN-02",
+        description: "High-performance ignition coil for reliable spark generation",
+        price: 42.00,
+        engine: "50cc",
+        category: "ignition",
+        stock: "in-stock",
+        icon: "charging-station"
+      },
+      {
+        id: 9,
+        name: "Air Filter",
+        code: "LGE-ALL-AIR-01",
+        description: "Washable foam air filter for superior engine protection",
+        price: 15.99,
+        engine: "50cc",
+        category: "fuel",
+        stock: "in-stock",
+        icon: "fan"
+      },
+      {
+        id: 10,
+        name: "Piston Assembly - 65cc",
+        code: "LGE-65-PST-01",
+        description: "Performance piston kit for 65cc 2-stroke engine with increased compression",
+        price: 52.99,
+        engine: "65cc",
+        category: "engine",
+        stock: "in-stock",
+        icon: "circle"
+      },
+      {
+        id: 11,
+        name: "Reed Valve Assembly",
+        code: "LGE-65-REED-01",
+        description: "Carbon fiber reed valves for improved throttle response",
+        price: 38.50,
+        engine: "65cc",
+        category: "fuel",
+        stock: "out-stock",
+        icon: "door-open"
+      },
+      {
+        id: 12,
+        name: "Cylinder Kit - 65cc",
+        code: "LGE-65-CYL-01",
+        description: "Nikasil-coated cylinder with head for 65cc engine",
+        price: 145.00,
+        engine: "65cc",
+        category: "engine",
+        stock: "low-stock",
+        icon: "database"
+      }
+    ];
+
+    let filteredParts = [...partsData];
+
+    function renderParts() {
+      const grid = document.getElementById('partsGrid');
+      grid.innerHTML = '';
+
+      filteredParts.forEach(part => {
+        const stockClass = part.stock === 'in-stock' ? 'in-stock' : 
+                          part.stock === 'low-stock' ? 'low-stock' : 'out-stock';
+        const stockText = part.stock === 'in-stock' ? 'In Stock' : 
+                         part.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock';
+
+        const card = document.createElement('div');
+        card.className = 'part-card';
+        card.innerHTML = `
+          <div class="part-header">
+            <div class="part-icon">
+              <i class="fas fa-${part.icon}"></i>
+            </div>
+            <div class="part-title">
+              <h3>${part.name}</h3>
+              <p class="part-code">${part.code}</p>
+            </div>
+          </div>
+          <p class="part-description">${part.description}</p>
+          <div class="part-meta">
+            <div class="meta-item">
+              <i class="fas fa-cog"></i>
+              <span>${part.engine === '50cc' ? '50cc 4-Stroke' : '65cc 2-Stroke'}</span>
+            </div>
+          </div>
+          <div class="part-price">$${part.price.toFixed(2)}</div>
+          <span class="stock-badge ${stockClass}">${stockText}</span>
+          <button class="btn-primary" ${part.stock === 'out-stock' ? 'disabled' : ''}>
+            <i class="fas fa-shopping-cart me-2"></i>${part.stock === 'out-stock' ? 'Out of Stock' : 'Add to Cart'}
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.getElementById('resultsCount').textContent = 
+        `Showing ${filteredParts.length} part${filteredParts.length !== 1 ? 's' : ''}`;
+    }
+
+    function applyFilters() {
+      const engineFilter = document.getElementById('engineFilter').value;
+      const categoryFilter = document.getElementById('categoryFilter').value;
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const priceFilter = document.getElementById('priceFilter').value;
+
+      filteredParts = partsData.filter(part => {
+        const matchEngine = !engineFilter || part.engine === engineFilter;
+        const matchCategory = !categoryFilter || part.category === categoryFilter;
+        const matchSearch = !searchInput || 
+          part.name.toLowerCase().includes(searchInput) || 
+          part.code.toLowerCase().includes(searchInput) ||
+          part.description.toLowerCase().includes(searchInput);
+        
+        let matchPrice = true;
+        if (priceFilter) {
+          const [min, max] = priceFilter.split('-').map(Number);
+          matchPrice = part.price >= min && part.price <= max;
+        }
+
+        return matchEngine && matchCategory && matchSearch && matchPrice;
+      });
+
+      applySorting();
+      renderParts();
+    }
+
+    function applySorting() {
+      const sortValue = document.getElementById('sortSelect').value;
+
+      switch(sortValue) {
+        case 'name':
+          filteredParts.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'price-low':
+          filteredParts.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-high':
+          filteredParts.sort((a, b) => b.price - a.price);
+          break;
+        case 'stock':
+          const stockOrder = {'in-stock': 0, 'low-stock': 1, 'out-stock': 2};
+          filteredParts.sort((a, b) => stockOrder[a.stock] - stockOrder[b.stock]);
+          break;
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('engineFilter').value = '';
+      document.getElementById('categoryFilter').value = '';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('priceFilter').value = '';
+      document.getElementById('sortSelect').value = 'name';
+      applyFilters();
+    }
+
+    document.getElementById('engineFilter').addEventListener('change', applyFilters);
+    document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('priceFilter').addEventListener('change', applyFilters);
+    document.getElementById('sortSelect').addEventListener('change', () => {
+      applySorting();
+      renderParts();
+    });
+
+    renderParts();
+  </script>
+</body>
+</html>
